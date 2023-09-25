@@ -63,8 +63,9 @@ button {
   background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
-display: inline-flex;
-align-items: center;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s;
 }
 button:hover {
   border-color: #dcdce2;
@@ -72,7 +73,9 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: none;
+  transform: scale(0.95);
 }
+
 
 form {
   margin: 0 auto;

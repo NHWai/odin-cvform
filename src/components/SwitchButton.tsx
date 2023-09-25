@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "../switch.css";
+import "../styles/switch.css";
 
 interface Props {
   readMode: boolean;

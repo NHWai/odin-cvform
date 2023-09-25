@@ -18,18 +18,19 @@ export default function GeneralInfo(props: Props) {
       <div className="subHeader secondary">
         {(props.isValid && props.occupation) || "Occupation"}
       </div>
-      <ul
+      <div
         style={{
           display: "flex",
           justifyContent: "center",
-          gap: "2em",
-          paddingInlineStart: "0px",
+          rowGap: "2em",
+          columnGap: "1rem",
+          flexWrap: "wrap",
         }}
       >
-        <li>{(props.isValid && props.phoneNo) || "phone"}</li>
-        <li>{(props.isValid && props.email) || "email"}</li>
-        <li>{(props.isValid && props.location) || "location"}</li>
-      </ul>
+        <div>&bull; {(props.isValid && props.phoneNo) || "phone"}</div>
+        <div>&bull; {(props.isValid && props.email) || "email"}</div>
+        <div>&bull; {(props.isValid && props.location) || "location"}</div>
+      </div>
       <div>
         <div className="subHeader">Summary</div>
         <hr />

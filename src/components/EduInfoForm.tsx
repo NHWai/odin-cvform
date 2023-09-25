@@ -42,8 +42,11 @@ export default function EduInfoForm({ readMode }: Props) {
         errors.studyTitle = "required";
       }
 
+      const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
       if (!values.studyDate) {
         errors.studyDate = "required";
+      } else if (!dateRegex.test(values.studyDate)) {
+        errors.studyDate = "Invalid Date";
       }
 
       return errors;
@@ -52,7 +55,6 @@ export default function EduInfoForm({ readMode }: Props) {
       let newVal: Study = { ...values };
       if (newVal.id === "") {
         newVal.id = uuidv4();
-        console.log(newVal);
         setStudies((pre) => [...pre, newVal]);
       } else {
         const targetId = studies.findIndex((item) => item.id === newVal.id);
@@ -130,9 +132,10 @@ export default function EduInfoForm({ readMode }: Props) {
           <div className="inputContainer">
             <input
               type="text"
-              placeholder="Date of Completion"
+              placeholder={`Date of Completion`}
               {...formik.getFieldProps("studyDate")}
             />
+            <small>(Format:dd/mm/yyyy)</small>
             {formik.touched.studyDate && formik.errors.studyDate ? (
               <small className="error">{formik.errors.studyDate}</small>
             ) : null}

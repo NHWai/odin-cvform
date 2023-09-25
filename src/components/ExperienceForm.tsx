@@ -54,8 +54,15 @@ export default function ExperienceForm({ readMode }: Props) {
         errors.responsibilities = "required";
       }
 
+      const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
       if (!values.startDate) {
         errors.startDate = "required";
+      } else if (!dateRegex.test(values.startDate)) {
+        errors.startDate = "invalid date";
+      }
+
+      if (values.endDate && !dateRegex.test(values.endDate)) {
+        errors.endDate = "invalid date";
       }
 
       return errors;
@@ -174,6 +181,7 @@ export default function ExperienceForm({ readMode }: Props) {
               placeholder="Start Date"
               {...formik.getFieldProps("startDate")}
             />
+            <small>(Format:dd/mm/yyyy)</small>
             {formik.touched.startDate && formik.errors.startDate ? (
               <small className="error">{formik.errors.startDate}</small>
             ) : null}
@@ -185,7 +193,8 @@ export default function ExperienceForm({ readMode }: Props) {
               placeholder="End Date"
               {...formik.getFieldProps("endDate")}
             />
-            <small>Left blank for current work</small>
+            <small>Left it blank for current work</small>
+            <small>Format:dd/mm/yyyy</small>
             {formik.touched.endDate && formik.errors.endDate ? (
               <small className="error">{formik.errors.endDate}</small>
             ) : null}

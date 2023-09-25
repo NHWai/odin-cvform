@@ -55,6 +55,8 @@ export default function GeneralInfoForm({ readMode }: Props) {
 
       if (!values.about) {
         errors.about = "required";
+      } else if (values.about.length > 150) {
+        errors.about = "not more than 150 words";
       }
 
       if (!values.skills) {
