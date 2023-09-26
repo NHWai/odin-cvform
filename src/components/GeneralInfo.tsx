@@ -15,23 +15,25 @@ export default function GeneralInfo(props: Props) {
       <div className="mainHeader">
         {(props.isValid && props.name) || "Your Name"}
       </div>
-      <div className="subHeader secondary">
-        {(props.isValid && props.occupation) || "Occupation"}
+      <div style={{ marginBottom: "1rem" }}>
+        <div className="subHeader secondary">
+          {(props.isValid && props.occupation) || "Occupation"}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            rowGap: "2em",
+            columnGap: "1rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <div>&bull; {(props.isValid && props.phoneNo) || "phone"}</div>
+          <div>&bull; {(props.isValid && props.email) || "email"}</div>
+          <div>&bull; {(props.isValid && props.location) || "location"}</div>
+        </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          rowGap: "2em",
-          columnGap: "1rem",
-          flexWrap: "wrap",
-        }}
-      >
-        <div>&bull; {(props.isValid && props.phoneNo) || "phone"}</div>
-        <div>&bull; {(props.isValid && props.email) || "email"}</div>
-        <div>&bull; {(props.isValid && props.location) || "location"}</div>
-      </div>
-      <div>
+      <div style={{ marginBottom: "1rem" }}>
         <div className="subHeader">Summary</div>
         <hr />
         {props.isValid && props.about ? (

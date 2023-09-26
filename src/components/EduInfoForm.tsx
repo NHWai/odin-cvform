@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import Modal from "./Modal";
 import EduInfo from "./EduInfo";
-import { AiOutlineEdit } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 
 interface Props {
@@ -94,7 +94,7 @@ export default function EduInfoForm({ readMode }: Props) {
             formik.resetForm();
           }}
         >
-          Edu Info <AiOutlineEdit />
+          Edu Info <AiOutlinePlus />
         </button>
       )}
       <div className="subHeader">Educational Information</div>
