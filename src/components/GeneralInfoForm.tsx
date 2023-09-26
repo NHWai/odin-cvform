@@ -72,7 +72,7 @@ export default function GeneralInfoForm({ readMode }: Props) {
 
       return errors;
     },
-    onSubmit: (values) => {
+    onSubmit: () => {
       setOpen(false);
     },
   });
