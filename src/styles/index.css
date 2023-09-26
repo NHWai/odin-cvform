@@ -171,6 +171,6 @@ textarea:focus {
   max-width: 600px;
   min-width: 200px;
   width: 80%;
-  text-align: start;
+  text-align: center;
   margin: 0 auto;
 }
